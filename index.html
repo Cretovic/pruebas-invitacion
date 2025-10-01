@@ -108,18 +108,18 @@
   .small { font-size: 12px; opacity: 0.9; }
 
   /* Spiderman animación móvil desde GitHub */
-  .spiderman {
+  ..spiderman {
     position: fixed;
     top: -100px;
     left: -80px;
     width: 90px;
     height: 90px;
-    background-image: url("img/spiderman.png"); /* Imagen desde tu repositorio */
+    background-image: url("https://raw.githubusercontent.com/OpenAIAssets/SpidermanPNG/main/spiderman.png");
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 9999;
     pointer-events: none;
-  }
+}
 
   @keyframes swing {
     0%   { top: -100px; left: -80px; transform: rotate(-30deg); }
@@ -218,3 +218,4 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
+
