@@ -33,7 +33,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 400px; /* más compacto para móviles */
+    max-width: 400px;
   }
 
   .card {
@@ -107,18 +107,17 @@
 
   .small { font-size: 12px; opacity: 0.9; }
 
-  /* Spiderman animación móvil */
+  /* Spiderman animación móvil desde GitHub */
   .spiderman {
     position: fixed;
     top: -100px;
     left: -80px;
     width: 90px;
     height: 90px;
-    background-image: url("https://i.ibb.co/5YYj6Cr/spiderman.png");
+    background-image: url("img/spiderman.png"); /* Imagen desde tu repositorio */
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 9999;
-    animation: swing 4s ease-in-out forwards;
     pointer-events: none;
   }
 
@@ -190,18 +189,31 @@ revealBtn.addEventListener('click', () => {
   }
 });
 
-// Confirmar asistencia con Spiderman
+// Confirmar asistencia
 document.getElementById('rsvp').addEventListener('click', () => {
   const name = prompt("¿Cuál es tu nombre?");
   if(name){
     alert("¡Gracias " + name + "! Confirmada tu asistencia.\nRecuerda tu 'regalo' 🎁");
-
-    const spiderman = document.createElement("div");
-    spiderman.classList.add("spiderman");
-    document.body.appendChild(spiderman);
-
-    setTimeout(() => spiderman.remove(), 4000);
   }
+});
+
+// Spiderman al cargar la página
+window.addEventListener('load', () => {
+    const spider = document.createElement('div');
+    spider.classList.add('spiderman');
+    document.body.appendChild(spider);
+
+    // Animación simple tipo columpio
+    let t = 0;
+    function swing() {
+        t += 0.02;
+        const x = window.innerWidth/2 + Math.sin(t)*window.innerWidth/3;
+        const y = 50 + Math.abs(Math.sin(t*2))*200;
+        spider.style.left = x + 'px';
+        spider.style.top = y + 'px';
+        requestAnimationFrame(swing);
+    }
+    swing();
 });
 </script>
 </body>
