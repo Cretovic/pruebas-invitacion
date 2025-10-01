@@ -107,8 +107,8 @@
 
   .small { font-size: 12px; opacity: 0.9; }
 
-  /* Spiderman animación móvil desde GitHub */
-  ..spiderman {
+  /* Spiderman animación */
+  .spiderman {
     position: fixed;
     top: -100px;
     left: -80px;
@@ -119,14 +119,6 @@
     background-repeat: no-repeat;
     z-index: 9999;
     pointer-events: none;
-}
-
-  @keyframes swing {
-    0%   { top: -100px; left: -80px; transform: rotate(-30deg); }
-    25%  { top: 40px; left: 20%; transform: rotate(15deg); }
-    50%  { top: 120px; left: 50%; transform: rotate(-15deg); }
-    75%  { top: 40px; left: 80%; transform: rotate(20deg); }
-    100% { top: -150px; left: 120%; transform: rotate(45deg); }
   }
 </style>
 </head>
@@ -203,7 +195,7 @@ window.addEventListener('load', () => {
     spider.classList.add('spiderman');
     document.body.appendChild(spider);
 
-    // Animación simple tipo columpio
+    // Animación tipo columpio
     let t = 0;
     function swing() {
         t += 0.02;
@@ -218,4 +210,3 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
-
