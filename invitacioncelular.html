@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invitación CRISTIANCILLO 🐺</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #001f3f, #8b0000);
+    color: #fff;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+  }
+
+  .spiderweb {
+    position: fixed;
+    inset: 0;
+    background-image: url('https://i.ibb.co/zZ0b8km/spiderweb.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px; /* más compacto para móviles */
+  }
+
+  .card {
+    background: rgba(255, 0, 0, 0.15);
+    border: 3px solid #ff0000;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(255,0,0,0.8);
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #ff0000;
+    text-shadow: 2px 2px #000;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #87cefa;
+  }
+
+  p { font-size: 14px; margin: 6px 0; }
+
+  .btn, .ghost {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+    padding: 14px 0;
+    font-size: 16px;
+  }
+
+  .btn { background: #ff0000; color: #fff; border: none; font-weight: bold; border-radius: 10px; cursor: pointer; }
+  .btn:hover { background: #cc0000; }
+
+  .ghost { background: transparent; border: 2px solid #ff0000; color: #fff; border-radius: 10px; cursor: pointer; }
+
+  .modal-back {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+  .modal-back.visible { visibility: visible; opacity: 1; }
+
+  .modal {
+    background: #111;
+    border: 2px solid #ff0000;
+    padding: 15px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+  }
+
+  iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .small { font-size: 12px; opacity: 0.9; }
+
+  /* Spiderman animación móvil */
+  .spiderman {
+    position: fixed;
+    top: -100px;
+    left: -80px;
+    width: 90px;
+    height: 90px;
+    background-image: url("https://i.ibb.co/5YYj6Cr/spiderman.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 9999;
+    animation: swing 4s ease-in-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes swing {
+    0%   { top: -100px; left: -80px; transform: rotate(-30deg); }
+    25%  { top: 40px; left: 20%; transform: rotate(15deg); }
+    50%  { top: 120px; left: 50%; transform: rotate(-15deg); }
+    75%  { top: 40px; left: 80%; transform: rotate(20deg); }
+    100% { top: -150px; left: 120%; transform: rotate(45deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="spiderweb"></div>
+
+<div class="wrap">
+  <div class="card">
+    <h1>🕷️ Cumple de CRISTIANCILLO 🐺 🕷️</h1>
+    <p class="subtitle">¡Estás invitado a la fiesta más épica del multiverso!</p>
+    <p><b>📅 Fecha:</b> 31 de octubre <br><b>🕗 Hora:</b> 20:00 hrs</p>
+
+    <button class="btn" id="openLocation">Ver ubicación 🕸️</button>
+    <button class="ghost" id="rsvp">Confirmar asistencia</button>
+  </div>
+</div>
+
+<div class="modal-back" id="modalBack">
+  <div class="modal">
+    <h2>Ubicación</h2>
+    <p class="small">Introduce la contraseña para revelar la dirección</p>
+    <button class="btn" id="revealBtn">Ingresar contraseña</button>
+    <div id="mapContainer" style="margin-top:15px;"></div>
+    <button class="ghost" id="closeModal">Cerrar</button>
+  </div>
+</div>
+
+<script>
+const ADDRESS_TEXT = "Valle Escondido #477, San Bernardo";
+const MAP_QUERY = encodeURIComponent(ADDRESS_TEXT);
+
+const openLocation = document.getElementById('openLocation');
+const modalBack = document.getElementById('modalBack');
+const closeModal = document.getElementById('closeModal');
+const revealBtn = document.getElementById('revealBtn');
+const mapContainer = document.getElementById('mapContainer');
+
+// Abrir modal
+openLocation.addEventListener('click', () => {
+  modalBack.classList.add('visible');
+});
+
+// Cerrar modal
+closeModal.addEventListener('click', () => {
+  modalBack.classList.remove('visible');
+  mapContainer.innerHTML = "";
+});
+
+// Contraseña
+revealBtn.addEventListener('click', () => {
+  const pass = prompt("Introduce la contraseña:");
+  if(pass === "000"){
+    mapContainer.innerHTML = `
+      <p><b>📍 Dirección:</b> ${ADDRESS_TEXT}</p>
+      <iframe src="https://www.google.com/maps?q=${MAP_QUERY}&output=embed" loading="lazy"></iframe>
+    `;
+  } else {
+    alert("Contraseña incorrecta 🕷️");
+  }
+});
+
+// Confirmar asistencia con Spiderman
+document.getElementById('rsvp').addEventListener('click', () => {
+  const name = prompt("¿Cuál es tu nombre?");
+  if(name){
+    alert("¡Gracias " + name + "! Confirmada tu asistencia.\nRecuerda tu 'regalo' 🎁");
+
+    const spiderman = document.createElement("div");
+    spiderman.classList.add("spiderman");
+    document.body.appendChild(spiderman);
+
+    setTimeout(() => spiderman.remove(), 4000);
+  }
+});
+</script>
+</body>
+</html>
