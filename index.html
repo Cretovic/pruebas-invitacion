@@ -1,211 +1,151 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitación CRISTIANCILLO 🐺</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #001f3f, #8b0000);
-      color: #fff;
-      overflow-x: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 10px;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Invitación 🎉 Cumpleaños de Cristiancillo 🎁</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #2c0d0d, #1a1a1a);
+    color: #fff;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+  }
 
-    .spiderweb {
-      position: fixed;
-      inset: 0;
-      background-image: url('https://i.ibb.co/zZ0b8km/spiderweb.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      opacity: 0.1;
-      z-index: 0;
-    }
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+  }
 
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 400px;
-    }
+  .card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 3px solid #ff4500;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(255,69,0,0.8);
+    padding: 20px;
+    text-align: center;
+  }
 
-    .card {
-      background: rgba(255, 0, 0, 0.15);
-      border: 3px solid #ff0000;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(255,0,0,0.8);
-      padding: 20px;
-      text-align: center;
-    }
+  h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: #ffcc00;
+    text-shadow: 2px 2px #000, 0 0 10px #ff4500, 0 0 20px #ff4500;
+  }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-      color: #ff0000;
-      text-shadow: 2px 2px #000;
-    }
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 14px;
+    color: #ffa07a;
+    text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6347;
+  }
 
-    .subtitle {
-      font-size: 16px;
-      margin-bottom: 12px;
-      color: #87cefa;
-    }
+  p { font-size: 14px; margin: 6px 0; }
 
-    p { font-size: 14px; margin: 6px 0; }
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+    padding: 14px 0;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    border: 2px solid #ff0000;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 
-    .btn, .ghost {
-      width: 100%;
-      max-width: 300px;
-      display: block;
-      margin: 10px auto;
-      padding: 14px 0;
-      font-size: 16px;
-    }
+  .btn:hover { 
+    background: #111; 
+    box-shadow: 0 0 15px #ff0000;
+  }
 
-    .btn { background: #ff0000; color: #fff; border: none; font-weight: bold; border-radius: 10px; cursor: pointer; }
-    .btn:hover { background: #cc0000; }
+  /* Animación brasas */
+  .brasas {
+    position: fixed;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 100px;
+    background: radial-gradient(circle at center, rgba(255,69,0,0.8), rgba(139,0,0,0.2));
+    border-radius: 50%;
+    filter: blur(15px);
+    animation: fuego 2s infinite alternate;
+    z-index: 0;
+  }
+  @keyframes fuego {
+    0% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+  }
 
-    .ghost { background: transparent; border: 2px solid #ff0000; color: #fff; border-radius: 10px; cursor: pointer; }
-
-    .modal-back {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 10;
-    }
-    .modal-back.visible { visibility: visible; opacity: 1; }
-
-    .modal {
-      background: #111;
-      border: 2px solid #ff0000;
-      padding: 15px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 350px;
-      text-align: center;
-    }
-
-    iframe {
-      width: 100%;
-      height: 250px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .small { font-size: 12px; opacity: 0.9; }
-
-    /* Spiderman animación */
-    .spiderman {
-      position: fixed;
-      top: -100px;
-      left: -80px;
-      width: 90px;
-      height: 90px;
-      background-image: url("https://www.stickpng.com/img/comics-and-fantasy/spiderman/spiderman-flying-between-buildings");
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 9999;
-      pointer-events: none;
-    }
-  </style>
+  /* Humo más visible */
+  .humo {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255,255,255,0.4), rgba(200,200,200,0.1), transparent);
+    border-radius: 50%;
+    animation: humo 6s infinite;
+    filter: blur(20px);
+    z-index: 0;
+  }
+  @keyframes humo {
+    0% { transform: translate(-50%,0) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%,-40px) scale(1.3); opacity: 0.6; }
+    100% { transform: translate(-50%,-80px) scale(1.5); opacity: 0; }
+  }
+</style>
 </head>
 <body>
 
-<div class="spiderweb"></div>
-
 <div class="wrap">
   <div class="card">
-    <h1>🕷️ Cumple de CRISTIANCILLO 🐺 🕷️</h1>
-    <p class="subtitle">¡Estás invitado a la fiesta más épica del multiverso!</p>
+    <h1>🎁 Cumpleaños de Cristiancillo 🍖🔥</h1>
+    
+    <!-- Frase unificada con estilo subtitle y resplandor -->
+    <p class="subtitle">🎉 Acompáñanos a celebrar una velada para celebrar mi cumpleaños 🎁 con un rico asado 🍖 y un cóctel especial 🍹</p>
+
+    <!-- Fecha y hora -->
     <p><b>📅 Fecha:</b> 31 de octubre <br><b>🕗 Hora:</b> 20:00 hrs</p>
 
-    <button class="btn" id="openLocation">Ver ubicación 🕸️</button>
-    <button class="ghost" id="rsvp">Confirmar asistencia</button>
+    <!-- Botón de ubicación directo a Google Maps -->
+    <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Valle+Escondido+477,+San+Bernardo" target="_blank">
+      Ver ubicación 📍
+    </a>
+
+    <!-- Botón de confirmar asistencia -->
+    <button class="btn" id="rsvp">Confirmar asistencia</button>
   </div>
 </div>
 
-<div class="modal-back" id="modalBack">
-  <div class="modal">
-    <h2>Ubicación</h2>
-    <p class="small">Introduce la contraseña para revelar la dirección</p>
-    <button class="btn" id="revealBtn">Ingresar contraseña</button>
-    <div id="mapContainer" style="margin-top:15px;"></div>
-    <button class="ghost" id="closeModal">Cerrar</button>
-  </div>
-</div>
+<!-- Efecto brasas y humo -->
+<div class="brasas"></div>
+<div class="humo"></div>
 
 <script>
-const ADDRESS_TEXT = "Valle Escondido #477, San Bernardo";
-const MAP_QUERY = encodeURIComponent(ADDRESS_TEXT);
-
-const openLocation = document.getElementById('openLocation');
-const modalBack = document.getElementById('modalBack');
-const closeModal = document.getElementById('closeModal');
-const revealBtn = document.getElementById('revealBtn');
-const mapContainer = document.getElementById('mapContainer');
-
-// Abrir modal
-openLocation.addEventListener('click', () => {
-  modalBack.classList.add('visible');
-});
-
-// Cerrar modal
-closeModal.addEventListener('click', () => {
-  modalBack.classList.remove('visible');
-  mapContainer.innerHTML = "";
-});
-
-// Contraseña
-revealBtn.addEventListener('click', () => {
-  const pass = prompt("Introduce la contraseña:");
-  if(pass === "000"){
-    mapContainer.innerHTML = `
-      <p><b>📍 Dirección:</b> ${ADDRESS_TEXT}</p>
-      <iframe src="https://www.google.com/maps?q=${MAP_QUERY}&output=embed" loading="lazy"></iframe>
-    `;
-  } else {
-    alert("Contraseña incorrecta 🕷️");
-  }
-});
-
 // Confirmar asistencia
 document.getElementById('rsvp').addEventListener('click', () => {
   const name = prompt("¿Cuál es tu nombre?");
   if(name){
-    alert("¡Gracias " + name + "! Confirmada tu asistencia.\nRecuerda tu 'regalo' 🎁");
+    alert("¡Gracias " + name + "! 🎉 Confirmada tu asistencia.\nRecuerda tu regalo 🎁");
   }
-});
-
-// Spiderman al cargar la página
-window.addEventListener('load', () => {
-    const spider = document.createElement('div');
-    spider.classList.add('spiderman');
-    document.body.appendChild(spider);
-
-    // Animación tipo columpio
-    let t = 0;
-    function swing() {
-        t += 0.02;
-        const x = window.innerWidth/2 + Math.sin(t)*window.innerWidth/3;
-        const y = 50 + Math.abs(Math.sin(t*2))*200;
-        spider.style.left = x + 'px';
-        spider.style.top = y + 'px';
-        requestAnimationFrame(swing);
-    }
-    swing();
 });
 </script>
 </body>
