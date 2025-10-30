@@ -73,7 +73,6 @@
     box-shadow: 0 0 15px #ff0000;
   }
 
-  /* Animación brasas */
   .brasas {
     position: fixed;
     bottom: -40px;
@@ -92,7 +91,6 @@
     100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
   }
 
-  /* Humo más visible */
   .humo {
     position: fixed;
     bottom: 100px;
@@ -118,35 +116,36 @@
 <div class="wrap">
   <div class="card">
     <h1>🎁 Cumpleaños de Cristiancillo 🍖🔥</h1>
-    
-    <!-- Frase unificada con estilo subtitle y resplandor -->
-    <p class="subtitle">🎉 Acompáñanos a celebrar una velada para celebrar mi cumpleaños 🎁 con un rico asado 🍖 y un cóctel especial 🍹</p>
+    <p class="subtitle">🎉 Acompáñanos en una velada para celebrar mi cumpleaños 🎁 con un rico asado 🍖 y un cóctel especial 🍹</p>
+    <p><b>📅 Fecha:</b> 01 de Noviembre <br><b>🕗 Hora:</b> 20:00 hrs</p>
 
-    <!-- Fecha y hora -->
-    <p><b>📅 Fecha:</b> 31 de octubre <br><b>🕗 Hora:</b> 20:00 hrs</p>
-
-    <!-- Botón de ubicación directo a Google Maps -->
-    <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Valle+Escondido+477,+San+Bernardo" target="_blank">
+    <a class="btn" href="https://maps.app.goo.gl/nkF6RqPsSXNzohYr8" target="_blank">
       Ver ubicación 📍
     </a>
 
-    <!-- Botón de confirmar asistencia -->
-    <button class="btn" id="rsvp">Confirmar asistencia</button>
+    <button class="btn" id="rsvp">Confirmar asistencia ✅</button>
   </div>
 </div>
 
-<!-- Efecto brasas y humo -->
 <div class="brasas"></div>
 <div class="humo"></div>
 
+<!-- Script Confirmación por WhatsApp con registro del nombre -->
 <script>
-// Confirmar asistencia
 document.getElementById('rsvp').addEventListener('click', () => {
-  const name = prompt("¿Cuál es tu nombre?");
-  if(name){
-    alert("¡Gracias " + name + "! 🎉 Confirmada tu asistencia.\nRecuerda tu regalo 🎁");
+  const name = prompt("¿Cuál es tu nombre? 😊");
+  
+  if (name && name.trim() !== "") {
+    const encodedName = encodeURIComponent(name.trim());
+    const message = `Hola! Confirmo mi asistencia al cumpleaños de Cristiancillo 🎉🍖%0AMi nombre es: ${encodedName}`;
+    const whatsappURL = `https://wa.me/56993122832?text=${message}`;
+    
+    window.open(whatsappURL, '_blank');
+  } else {
+    alert("Por favor ingresa tu nombre para confirmar ✅");
   }
 });
 </script>
+
 </body>
 </html>
