@@ -137,7 +137,7 @@ document.getElementById('rsvp').addEventListener('click', () => {
   
   if (name && name.trim() !== "") {
     const encodedName = encodeURIComponent(name.trim());
-    const message = `Hola! Confirmo mi asistencia al cumpleaños de Cristiancillo 🎉🍖%0AMi nombre es: ${encodedName}`;
+    const message = `Hola! Confirmo mi asistencia🎉%0AMi nombre es: ${encodedName}`;
     const whatsappURL = `https://wa.me/56993122832?text=${message}`;
     
     window.open(whatsappURL, '_blank');
@@ -149,3 +149,4 @@ document.getElementById('rsvp').addEventListener('click', () => {
 
 </body>
 </html>
+
